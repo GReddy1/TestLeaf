@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
 import Utiles.WebInstall;
+import pageObjectModel.CreateLead;
 import pageObjectModel.LoginPage;
 
 public class TestData {
@@ -26,6 +27,7 @@ public class TestData {
 		pp.load(fis);
 		String user = pp.getProperty("username");
 		String pass = pp.getProperty("password");
+		String compName = pp.getProperty("companyName");
 		
 		WebInstall wb = new WebInstall();
 			driver=	wb.websetup();
@@ -36,10 +38,12 @@ public class TestData {
 				lp.getpassword().sendKeys(pass);
 				lp.clicklogin().click();
 		
-		driver.findElement(By.linkText("CRM/SFA")).click();		
+		driver.findElement(By.linkText("CRM/SFA")).click();
+		driver.findElement(By.xpath("//a[text()='Create Lead']")).click();
 				
 				
-				
+		CreateLead cl = new CreateLead(driver);
+		cl.getCompany().sendKeys(compName);
 		
 	}
 	
