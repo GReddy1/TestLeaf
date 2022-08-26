@@ -28,6 +28,7 @@ public class TestData {
 		String user = pp.getProperty("username");
 		String pass = pp.getProperty("password");
 		String compName = pp.getProperty("companyName");
+		String name = pp.getProperty("firstName");
 		
 		WebInstall wb = new WebInstall();
 			driver=	wb.websetup();
@@ -44,6 +45,7 @@ public class TestData {
 				
 		CreateLead cl = new CreateLead(driver);
 		cl.getCompany().sendKeys(compName);
+		cl.getFirst().sendKeys(name);
 		
 	}
 	

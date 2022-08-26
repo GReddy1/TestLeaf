@@ -11,6 +11,9 @@ public class CreateLead {
 	private By companyName = By.id("createLeadForm_companyName");
 	
 	
+	private By firstName = By.id("createLeadForm_firstName");
+	
+	
 	public CreateLead(WebDriver driver) {
 		this.driver= driver;
 	}
@@ -21,8 +24,11 @@ return driver.findElement(companyName);
 	}
 	
 	
+
 	
-	
+	public WebElement getFirst() {
+return driver.findElement(firstName);
+	}
 	
 	
 	
